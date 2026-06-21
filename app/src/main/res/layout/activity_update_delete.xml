@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Header Minimalis -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modify Buddy"
+            android:textSize="26sp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit your friend's profile details safely"
+            android:textSize="13sp"
+            android:textColor="#B3FFFFFF"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="32dp"/>
+
+        <!-- SEKSYEN 1: PERSONAL INFO (Kotak Arang #2b2a2b) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PERSONAL DETAILS"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="11sp"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="4dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/bg_dark"
+            android:padding="16dp"
+            android:layout_marginBottom="24dp">
+
+            <EditText
+                android:id="@+id/etNameUp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Full Name"
+                android:textColorHint="#66FFFFFF"
+                android:textColor="@color/white"
+                android:background="@null"
+                android:textSize="15sp"/>
+
+            <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#33FFFFFF" android:layout_marginVertical="10dp"/>
+
+            <Spinner
+                android:id="@+id/spGenderUp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@null"/>
+
+            <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#33FFFFFF" android:layout_marginVertical="10dp"/>
+
+            <EditText
+                android:id="@+id/etHpUp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Phone Number"
+                android:inputType="phone"
+                android:textColorHint="#66FFFFFF"
+                android:textColor="@color/white"
+                android:background="@null"
+                android:textSize="15sp"/>
+
+            <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#33FFFFFF" android:layout_marginVertical="10dp"/>
+
+            <EditText
+                android:id="@+id/etEmailUp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress"
+                android:textColorHint="#66FFFFFF"
+                android:textColor="@color/white"
+                android:background="@null"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <!-- SEKSYEN 2: ADDRESS (Kotak Arang #2b2a2b) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RESIDENTIAL ADDRESS"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="11sp"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="4dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/bg_dark"
+            android:padding="16dp"
+            android:layout_marginBottom="32dp">
+
+            <EditText
+                android:id="@+id/etAddr1Up"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="House No / Floor / Building"
+                android:textColorHint="#66FFFFFF"
+                android:textColor="@color/white"
+                android:background="@null"
+                android:textSize="15sp"/>
+
+            <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#33FFFFFF" android:layout_marginVertical="10dp"/>
+
+            <EditText
+                android:id="@+id/etAddr2Up"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Street Name / District"
+                android:textColorHint="#66FFFFFF"
+                android:textColor="@color/white"
+                android:background="@null"
+                android:textSize="15sp"/>
+
+            <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#33FFFFFF" android:layout_marginVertical="10dp"/>
+
+            <EditText
+                android:id="@+id/etAddr3Up"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Postcode &amp; Locality"
+                android:textColorHint="#66FFFFFF"
+                android:textColor="@color/white"
+                android:background="@null"
+                android:textSize="15sp"/>
+
+            <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#33FFFFFF" android:layout_marginVertical="10dp"/>
+
+            <EditText
+                android:id="@+id/etAddr4Up"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="State"
+                android:textColorHint="#66FFFFFF"
+                android:textColor="@color/white"
+                android:background="@null"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <!-- Butang Aksi Sebelah-Menyebelah -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnDelete"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="0.8"
+                android:text="DELETE"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:backgroundTint="@color/accent_light"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnUpdate"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1.2"
+                android:text="SAVE CHANGES"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:backgroundTint="@color/primary_dark"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
