@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
             if(username.isEmpty() || password.isEmpty()){
 
                 Toast.makeText(LoginActivity.this,
-                        "Please enter username and password",
+                        "Please enter username and password correctly",
                         Toast.LENGTH_SHORT).show();
 
             }else{

@@ -23,7 +23,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         String username = getIntent().getStringExtra("USERNAME");
 
-        tvWelcome.setText("Welcome, " + username);
+        tvWelcome.setText("Welcome Back, " + username);
 
         // Open Update/Delete page
         btnGoToUpdate.setOnClickListener(v -> {

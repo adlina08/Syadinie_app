@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to Syadinie App"
+        android:text="Welcome to Syadinie Application"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:fontFamily="sans-serif-medium"
