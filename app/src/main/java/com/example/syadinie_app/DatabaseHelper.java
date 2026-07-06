@@ -43,4 +43,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return exists;
     }
+
+    // Insert new friend
+    public boolean insertFriend(String name, String gender, String hp, String email,
+                                String addr1, String addr2, String addr3, String addr4,
+                                byte[] image) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("name", name);
+        values.put("gender", gender);
+        values.put("hp", hp);
+        values.put("email", email);
+        values.put("addr1", addr1);
+        values.put("addr2", addr2);
+        values.put("addr3", addr3);
+        values.put("addr4", addr4);
+        values.put("image", image);
+
+        long result = db.insert("friends", null, values);
+
+        return result != -1;
+    }
 }

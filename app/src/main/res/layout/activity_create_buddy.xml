@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"/>
+
+        <EditText
+            android:id="@+id/etGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Gender"/>
+
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone"/>
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"/>
+
+        <EditText
+            android:id="@+id/etAddress1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address 1"/>
+
+        <EditText
+            android:id="@+id/etAddress2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address 2"/>
+
+        <EditText
+            android:id="@+id/etAddress3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address 3"/>
+
+        <EditText
+            android:id="@+id/etAddress4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address 4"/>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Buddy"/>
+
+    </LinearLayout>
+
+</ScrollView>
