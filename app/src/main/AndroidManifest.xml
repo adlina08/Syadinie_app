@@ -29,6 +29,7 @@
         <activity android:name=".MainActivity" />
 
         <activity android:name=".UpdateDeleteActivity" />
+        <activity android:name=".ViewFriendsActivity" />
 
     </application>
 

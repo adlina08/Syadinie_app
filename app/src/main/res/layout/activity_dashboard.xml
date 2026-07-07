@@ -21,6 +21,14 @@
         android:layout_height="55dp"
         android:text="OPEN UPDATE &amp; DELETE SCREEN"/>
 
+    <Button android:id="@+id/btnGoToSearch"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="SEARCH FRIENDS"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:backgroundTint="@color/primary_dark"/>
+
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"
