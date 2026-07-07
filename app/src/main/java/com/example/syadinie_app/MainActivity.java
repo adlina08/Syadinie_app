@@ -13,10 +13,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main); // Membuka paparan activity_main
 
         Button btnGoToUpdate = findViewById(R.id.btnGoToUpdate);
-
+        Button btnGoToSearch = findViewById(R.id.btnGoToSearch);
         // Fungsi klik untuk lompat ke skrin UpdateDeleteActivity
         btnGoToUpdate.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, UpdateDeleteActivity.class);
+            startActivity(intent);
+        });
+        btnGoToSearch.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ViewFriendsActivity.class);
             startActivity(intent);
         });
     }
