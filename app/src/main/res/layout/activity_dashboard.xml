@@ -22,10 +22,18 @@
         android:text="OPEN UPDATE &amp; DELETE SCREEN"/>
 
     <Button
+        android:id="@+id/btnCreateBuddy"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="CREATE BUDDY"
+        android:layout_marginTop="15dp"/>
+
+    <Button
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:text="LOGOUT"
         android:layout_marginTop="15dp"/>
+
 
 </LinearLayout>
