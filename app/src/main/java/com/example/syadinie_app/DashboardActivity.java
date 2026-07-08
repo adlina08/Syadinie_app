@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class DashboardActivity extends AppCompatActivity {
 
     TextView tvWelcome;
-    Button btnLogout, btnGoToUpdate, btnCreateBuddy;
+    Button btnLogout, btnGoToUpdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,6 @@ public class DashboardActivity extends AppCompatActivity {
         tvWelcome = findViewById(R.id.tvWelcome);
         btnLogout = findViewById(R.id.btnLogout);
         btnGoToUpdate = findViewById(R.id.btnGoToUpdate);
-        btnCreateBuddy = findViewById(R.id.btnCreateBuddy);
 
         String username = getIntent().getStringExtra("USERNAME");
 
@@ -30,12 +29,6 @@ public class DashboardActivity extends AppCompatActivity {
         btnGoToUpdate.setOnClickListener(v -> {
             Intent intent = new Intent(DashboardActivity.this,
                     UpdateDeleteActivity.class);
-            startActivity(intent);
-        });
-
-        btnCreateBuddy.setOnClickListener(v -> {
-            Intent intent = new Intent(DashboardActivity.this,
-                    CreateBuddyActivity.class);
             startActivity(intent);
         });
 
