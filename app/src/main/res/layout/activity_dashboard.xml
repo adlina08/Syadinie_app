@@ -33,7 +33,7 @@
         android:id="@+id/btnCreateBuddy"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:text="CREATE BUDDY"
+        android:text="CREATE BUDD"
         android:layout_marginTop="15dp"/>
 
     <Button
