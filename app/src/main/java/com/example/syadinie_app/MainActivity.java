@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     private TextView tvWelcome;
-    private Button btnGoToCreate, btnGoToSearch, btnGoToUpdate, btnLogout;
+    private Button btnGoToCreate, btnGoToSearch, btnGoToUpdate, btnChart, btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
         tvWelcome = findViewById(R.id.tvWelcome);
         btnGoToCreate = findViewById(R.id.btnGoToCreate);
         btnGoToSearch = findViewById(R.id.btnGoToSearch);
-        btnGoToUpdate = findViewById(R.id.btnGoToUpdate);
         btnLogout = findViewById(R.id.btnLogout);
+        btnChart = findViewById(R.id.btnChart);
 
         String username = getIntent().getStringExtra("USERNAME");
         if (username != null && !username.isEmpty()) {
@@ -38,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, CreateBuddyActivity.class);
             startActivity(intent);
         });
+        btnChart.setOnClickListener(v -> {
+            Intent intent = new Intent(this, ChartActivity.class);
+            startActivity(intent);
+        });
 
         // 4. FUNGSI BUTANG 2: Lompat ke skrin ViewFriendsActivity (Search/View)
         btnGoToSearch.setOnClickListener(v -> {
@@ -45,11 +49,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // 5. FUNGSI BUTANG 3: Lompat ke skrin UpdateDeleteActivity
-        btnGoToUpdate.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, UpdateDeleteActivity.class);
-            startActivity(intent);
-        });
 
         // 6. FUNGSI BUTANG 4: Log Keluar (Logout) balik ke LoginActivity
         btnLogout.setOnClickListener(v -> {

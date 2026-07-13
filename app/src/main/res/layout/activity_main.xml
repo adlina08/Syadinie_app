@@ -15,30 +15,6 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_marginBottom="30dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ni nak test je tau bukan jinja home"
-        android:textColor="#B3FFFFFF"
-        android:textSize="14sp"
-        android:layout_marginBottom="32dp" />
-
-    <Button
-        android:id="@+id/btnGoToUpdate"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:text="OPEN UPDATE &amp; DELETE SCREEN"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:backgroundTint="@color/primary_dark" />
-
-    <Button android:id="@+id/btnGoToList"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:text="LIST FRIENDS"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:backgroundTint="@color/primary_dark"/>
 
     <Button android:id="@+id/btnGoToSearch"
         android:layout_width="match_parent"
@@ -47,6 +23,16 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         android:backgroundTint="@color/primary_dark"/>
+
+    <Button
+        android:id="@+id/btnChart"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="DISPLAY CHARTS"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:backgroundTint="@color/primary_dark"
+        android:layout_marginBottom="12dp"/>
     <Button
         android:id="@+id/btnGoToCreate"
         android:layout_width="match_parent"
