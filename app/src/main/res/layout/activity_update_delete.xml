@@ -67,7 +67,8 @@
                 android:id="@+id/spGenderUp"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:background="@null"/>
+                android:background="@null"
+                android:entries="@array/gender_array" />
 
             <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#33FFFFFF" android:layout_marginVertical="10dp"/>
 
@@ -144,7 +145,7 @@
                 android:id="@+id/etAddr3Up"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="Postcode &amp; Locality"
+                android:hint="Postcode &amp; City"
                 android:textColorHint="#66FFFFFF"
                 android:textColor="@color/white"
                 android:background="@null"
@@ -161,6 +162,12 @@
                 android:textColor="@color/white"
                 android:background="@null"
                 android:textSize="15sp"/>
+
+            <Spinner
+                android:id="@+id/spStateUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/state_array"/>
         </LinearLayout>
 
         <!-- Butang Aksi Sebelah-Menyebelah -->

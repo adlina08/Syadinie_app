@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(LoginActivity.this,
-                            DashboardActivity.class);
+                            MainActivity.class);
 
                     intent.putExtra("USERNAME",username);
 

@@ -1,7 +1,28 @@
 <resources>
     <string name="app_name">Syadinie_app</string>
     <string-array name="gender_array">
+        <item>Select Gender</item>
         <item>Male</item>
         <item>Female</item>
+    </string-array>
+
+    <string-array name="state_array">
+        <item>Select State</item>
+        <item>Johor</item>
+        <item>Kedah</item>
+        <item>Kelantan</item>
+        <item>Melaka</item>
+        <item>Negeri Sembilan</item>
+        <item>Pahang</item>
+        <item>Perak</item>
+        <item>Perlis</item>
+        <item>Pulau Pinang</item>
+        <item>Sabah</item>
+        <item>Sarawak</item>
+        <item>Selangor</item>
+        <item>Terengganu</item>
+        <item>Kuala Lumpur</item>
+        <item>Labuan</item>
+        <item>Putrajaya</item>
     </string-array>
 </resources>

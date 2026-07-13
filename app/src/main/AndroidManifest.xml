@@ -32,6 +32,7 @@
 
         <activity android:name=".UpdateDeleteActivity" />
         <activity android:name=".ViewFriendsActivity" />
+        <activity android:name=".ViewDetailsActivity" android:exported="false" />
 
     </application>
 

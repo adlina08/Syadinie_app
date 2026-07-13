@@ -8,14 +8,13 @@
     android:padding="24dp">
 
     <TextView
+        android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to Syadinie Application"
-        android:textColor="@color/white"
+        android:text="Welcome"
         android:textSize="24sp"
-        android:fontFamily="sans-serif-medium"
-        android:layout_marginBottom="8dp" />
-
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,6 +32,14 @@
         android:textStyle="bold"
         android:backgroundTint="@color/primary_dark" />
 
+    <Button android:id="@+id/btnGoToList"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="LIST FRIENDS"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:backgroundTint="@color/primary_dark"/>
+
     <Button android:id="@+id/btnGoToSearch"
         android:layout_width="match_parent"
         android:layout_height="55dp"
@@ -40,5 +47,20 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         android:backgroundTint="@color/primary_dark"/>
+    <Button
+        android:id="@+id/btnGoToCreate"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="ADD NEW BUDDY"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:backgroundTint="@color/primary_dark"
+        android:layout_marginBottom="12dp"/>
 
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="LOGOUT"
+        android:layout_marginTop="15dp"/>
 </LinearLayout>

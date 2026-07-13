@@ -1,12 +1,10 @@
 package com.example.syadinie_app;
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CreateBuddyActivity extends AppCompatActivity {
@@ -15,7 +13,6 @@ public class CreateBuddyActivity extends AppCompatActivity {
     EditText etAddress1, etAddress2, etAddress3;
     Spinner spGender, spState;
     Button btnSave;
-
     DatabaseHelper db;
 
     @Override
@@ -34,52 +31,6 @@ public class CreateBuddyActivity extends AppCompatActivity {
         etAddress3 = findViewById(R.id.etAddress3);
         spState = findViewById(R.id.spState);
         btnSave = findViewById(R.id.btnSave);
-
-        // Gender Spinner
-        String[] genders = {
-                "Select Gender",
-                "Male",
-                "Female"
-        };
-
-        ArrayAdapter<String> genderAdapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_spinner_item,
-                genders
-        );
-
-        genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spGender.setAdapter(genderAdapter);
-
-// State Spinner
-        String[] states = {
-                "Select State",
-                "Johor",
-                "Kedah",
-                "Kelantan",
-                "Melaka",
-                "Negeri Sembilan",
-                "Pahang",
-                "Perak",
-                "Perlis",
-                "Pulau Pinang",
-                "Sabah",
-                "Sarawak",
-                "Selangor",
-                "Terengganu",
-                "Kuala Lumpur",
-                "Labuan",
-                "Putrajaya"
-        };
-
-        ArrayAdapter<String> stateAdapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_spinner_item,
-                states
-        );
-
-        stateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spState.setAdapter(stateAdapter);
 
         btnSave.setOnClickListener(v -> saveFriend());
     }
@@ -100,23 +51,11 @@ public class CreateBuddyActivity extends AppCompatActivity {
                 || email.isEmpty()
                 || addr4.equals("Select State")) {
 
-            Toast.makeText(this,
-                    "Please complete all required fields.",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please complete all required fields.", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        boolean inserted = db.insertFriend(
-                name,
-                gender,
-                hp,
-                email,
-                addr1,
-                addr2,
-                addr3,
-                addr4,
-                null
-        );
+        boolean inserted = db.insertFriend(name, gender, hp, email, addr1, addr2, addr3, addr4, null);
 
         if (inserted) {
             Toast.makeText(this, "Buddy saved successfully", Toast.LENGTH_SHORT).show();
