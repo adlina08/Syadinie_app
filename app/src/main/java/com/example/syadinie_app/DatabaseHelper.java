@@ -66,4 +66,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return result != -1;
     }
+
+    public Cursor getStateStatistics() {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        return db.rawQuery(
+                "SELECT addr4, COUNT(*) AS total " +
+                        "FROM friends " +
+                        "GROUP BY addr4 " +
+                        "ORDER BY total DESC",
+                null);
+    }
+
 }

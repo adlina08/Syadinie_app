@@ -33,7 +33,14 @@
         android:id="@+id/btnCreateBuddy"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:text="CREATE BUDD"
+        android:text="CREATE BUDDY"
+        android:layout_marginTop="15dp"/>
+
+    <Button
+        android:id="@+id/btnChart"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="DISPLAY CHARTS"
         android:layout_marginTop="15dp"/>
 
     <Button
