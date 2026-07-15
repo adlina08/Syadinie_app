@@ -54,6 +54,17 @@
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 android:layout_marginTop="8dp"/>
+
+            <EditText
+                android:id="@+id/etEmailUp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/white"
+                android:textColorHint="#66FFFFFF"
+                android:textSize="15sp" />
         </LinearLayout>
 
         <TextView
@@ -108,16 +119,6 @@
 
             <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#33FFFFFF" android:layout_marginVertical="10dp"/>
 
-            <EditText
-                android:id="@+id/etEmailUp"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="Email Address"
-                android:inputType="textEmailAddress"
-                android:textColorHint="#66FFFFFF"
-                android:textColor="@color/white"
-                android:background="@null"
-                android:textSize="15sp"/>
         </LinearLayout>
 
         <TextView

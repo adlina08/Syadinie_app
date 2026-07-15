@@ -138,22 +138,29 @@ public class UpdateDeleteActivity extends BaseActivity { // Mewarisi BackActivit
             }
         });
 
-        // OPERASI 2: DELETE
+        // OPERASI 2: DELETE (with confirmation dialog)
         findViewById(R.id.btnDelete).setOnClickListener(v -> {
-            try {
-                SQLiteDatabase database = db.getWritableDatabase();
-                int result = database.delete("friends", "id=?", new String[]{String.valueOf(buddyId)});
-                database.close();
+            new android.app.AlertDialog.Builder(this)
+                    .setTitle("Delete Buddy")
+                    .setMessage("Are you sure you want to delete this buddy? This action cannot be undone.")
+                    .setPositiveButton("Delete", (dialog, which) -> {
+                        try {
+                            SQLiteDatabase database = db.getWritableDatabase();
+                            int result = database.delete("friends", "id=?", new String[]{String.valueOf(buddyId)});
+                            database.close();
 
-                if (result > 0) {
-                    Toast.makeText(this, "Deleted successfully!", Toast.LENGTH_SHORT).show();
-                    finish();
-                } else {
-                    Toast.makeText(this, "Delete failed!", Toast.LENGTH_SHORT).show();
-                }
-            } catch (Exception e) {
-                Toast.makeText(this, "Delete Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
-            }
+                            if (result > 0) {
+                                Toast.makeText(this, "Deleted successfully!", Toast.LENGTH_SHORT).show();
+                                finish();
+                            } else {
+                                Toast.makeText(this, "Delete failed!", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (Exception e) {
+                            Toast.makeText(this, "Delete Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    })
+                    .setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss())
+                    .show();
         });
     }
 
