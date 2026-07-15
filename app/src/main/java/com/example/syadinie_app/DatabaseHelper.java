@@ -78,5 +78,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         "ORDER BY total DESC",
                 null);
     }
+    public Cursor getGenderStatistics() {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        return db.rawQuery(
+                "SELECT gender, COUNT(*) AS total " +
+                        "FROM friends " +
+                        "GROUP BY gender " +
+                        "ORDER BY total DESC",
+                null);
+    }
 
 }

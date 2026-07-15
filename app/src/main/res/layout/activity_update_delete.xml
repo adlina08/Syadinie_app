@@ -11,7 +11,6 @@
         android:orientation="vertical"
         android:padding="24dp">
 
-        <!-- Header Minimalis -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -29,9 +28,34 @@
             android:textSize="13sp"
             android:textColor="#B3FFFFFF"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="32dp"/>
+            android:layout_marginBottom="24dp"/>
 
-        <!-- SEKSYEN 1: PERSONAL INFO (Kotak Arang #2b2a2b) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:id="@+id/ivProfileUp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@android:color/darker_gray"
+                android:src="@android:drawable/ic_menu_camera"
+                android:scaleType="centerCrop"
+                android:padding="10dp"
+                android:contentDescription="Profile Picture" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tap to change photo"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -67,8 +91,7 @@
                 android:id="@+id/spGenderUp"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:background="@null"
-                android:entries="@array/gender_array" />
+                android:background="@null" />
 
             <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#33FFFFFF" android:layout_marginVertical="10dp"/>
 
@@ -97,7 +120,6 @@
                 android:textSize="15sp"/>
         </LinearLayout>
 
-        <!-- SEKSYEN 2: ADDRESS (Kotak Arang #2b2a2b) -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -153,24 +175,13 @@
 
             <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#33FFFFFF" android:layout_marginVertical="10dp"/>
 
-            <EditText
-                android:id="@+id/etAddr4Up"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="State"
-                android:textColorHint="#66FFFFFF"
-                android:textColor="@color/white"
-                android:background="@null"
-                android:textSize="15sp"/>
-
             <Spinner
                 android:id="@+id/spStateUp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/state_array"/>
+                android:layout_height="48dp"
+                android:background="@null"/>
         </LinearLayout>
 
-        <!-- Butang Aksi Sebelah-Menyebelah -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

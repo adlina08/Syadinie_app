@@ -10,6 +10,24 @@
         android:padding="20dp"
         android:layout_margin="50dp">
 
+        <ImageView
+            android:id="@+id/ivProfile"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@android:color/darker_gray"
+            android:src="@android:drawable/ic_menu_camera"
+            android:scaleType="centerCrop"
+            android:padding="10dp"
+            android:contentDescription="Profile Picture" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tap to upload photo"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:layout_marginTop="8dp"/>
+
         <EditText
             android:id="@+id/etName"
             android:layout_width="match_parent"

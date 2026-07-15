@@ -1,22 +1,57 @@
 package com.example.syadinie_app;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
 
-public class UpdateDeleteActivity extends AppCompatActivity {
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
+public class UpdateDeleteActivity extends BaseActivity { // Mewarisi BackActivity
 
     DatabaseHelper db;
     long buddyId;
     EditText etName, etHp, etEmail, etAddr1, etAddr2, etAddr3;
     Spinner spGender, spState;
+    ImageView ivProfile;
+
+    private byte[] imageBytes = null; // Menyimpan data byte gambar profil
+
+    // Launcher untuk memilih gambar dari galeri peranti
+    private final ActivityResultLauncher<Intent> imagePickerLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                    Uri imageUri = result.getData().getData();
+                    try {
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+                        ivProfile.setImageBitmap(bitmap);
+                        ivProfile.setPadding(0, 0, 0, 0); // Buang padding ikon kamera bawaan
+
+                        // Convert Bitmap kepada Byte Array
+                        imageBytes = getBytesFromBitmap(bitmap);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        Toast.makeText(this, "Failed to load image", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+    );
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +67,8 @@ public class UpdateDeleteActivity extends AppCompatActivity {
             return;
         }
 
-        // Hubungkan komponen UI dari XML
+        // Hubungkan komponen UI
+        ivProfile = findViewById(R.id.ivProfileUp);
         etName = findViewById(R.id.etNameUp);
         spGender = findViewById(R.id.spGenderUp);
         etHp = findViewById(R.id.etHpUp);
@@ -53,6 +89,9 @@ public class UpdateDeleteActivity extends AppCompatActivity {
         stateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spState.setAdapter(stateAdapter);
 
+        // Pilih gambar apabila diklik
+        ivProfile.setOnClickListener(v -> openGallery());
+
         // PANGGIL DATABASE: Masukkan data asal ke dalam borang
         loadBuddyDetails();
 
@@ -72,9 +111,6 @@ public class UpdateDeleteActivity extends AppCompatActivity {
                 return;
             }
 
-            // ========================================================
-            // DISINKRONKAN DENGAN DATABASE (Menggunakan addr1 -> addr4)
-            // ========================================================
             ContentValues cv = new ContentValues();
             cv.put("name", name);
             cv.put("gender", gender);
@@ -84,6 +120,7 @@ public class UpdateDeleteActivity extends AppCompatActivity {
             cv.put("addr2", addr2);
             cv.put("addr3", addr3);
             cv.put("addr4", addr4);
+            cv.put("image", imageBytes); // Kemas kini sekali data gambar (boleh jadi null/lama/baru)
 
             try {
                 SQLiteDatabase database = db.getWritableDatabase();
@@ -120,13 +157,24 @@ public class UpdateDeleteActivity extends AppCompatActivity {
         });
     }
 
+    private void openGallery() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        imagePickerLauncher.launch(intent);
+    }
+
+    private byte[] getBytesFromBitmap(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 70, stream);
+        return stream.toByteArray();
+    }
+
     private void loadBuddyDetails() {
         try {
             SQLiteDatabase d = db.getReadableDatabase();
             Cursor c = d.rawQuery("SELECT * FROM friends WHERE id = ?", new String[]{String.valueOf(buddyId)});
 
             if (c != null && c.moveToFirst()) {
-                // Taktik Selamat: Ambil mengikut urutan indeks kolum (0=id, 1=name, 2=gender, 3=hp, 4=email, 5=addr1, 6=addr2, 7=addr3, 8=addr4)
+                // Set EditText
                 etName.setText(c.getString(1));
                 etHp.setText(c.getString(3));
                 etEmail.setText(c.getString(4));
@@ -148,6 +196,15 @@ public class UpdateDeleteActivity extends AppCompatActivity {
                     ArrayAdapter<CharSequence> adapter = (ArrayAdapter<CharSequence>) spState.getAdapter();
                     int position = adapter.getPosition(state);
                     if (position >= 0) spState.setSelection(position);
+                }
+
+                // Ambil data gambar (Kolum indeks ke-9: image BLOB)
+                byte[] imgBlob = c.getBlob(9);
+                if (imgBlob != null) {
+                    imageBytes = imgBlob;
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(imgBlob, 0, imgBlob.length);
+                    ivProfile.setImageBitmap(bitmap);
+                    ivProfile.setPadding(0, 0, 0, 0); // Buang padding ikon lalai
                 }
             }
 
