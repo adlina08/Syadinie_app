@@ -20,7 +20,7 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewFriendsActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class ViewFriendsActivity extends BaseActivity implements SearchView.OnQueryTextListener {
 
     SearchView searchView;
     ListView listView;

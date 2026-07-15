@@ -3,17 +3,20 @@ package com.example.syadinie_app;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
 
-public class ViewDetailsActivity extends AppCompatActivity {
+public class ViewDetailsActivity extends BaseActivity {
 
     DatabaseHelper db;
     long buddyId;
     TextView tvDetName, tvDetGender, tvDetHp, tvDetEmail, tvDetAddress;
+    ImageView ivDetProfile;
     Button btnGoToEdit;
 
     @Override
@@ -30,6 +33,7 @@ public class ViewDetailsActivity extends AppCompatActivity {
             return;
         }
 
+        ivDetProfile = findViewById(R.id.ivDetProfile);
         tvDetName = findViewById(R.id.tvDetName);
         tvDetGender = findViewById(R.id.tvDetGender);
         tvDetHp = findViewById(R.id.tvDetHp);
@@ -37,10 +41,8 @@ public class ViewDetailsActivity extends AppCompatActivity {
         tvDetAddress = findViewById(R.id.tvDetAddress);
         btnGoToEdit = findViewById(R.id.btnGoToEdit);
 
-        // Panggil fungsi memaparkan butiran
         displayDetails();
 
-        // Klik butang Edit untuk pergi ke UpdateDeleteActivity
         btnGoToEdit.setOnClickListener(v -> {
             Intent intent = new Intent(ViewDetailsActivity.this, UpdateDeleteActivity.class);
             intent.putExtra("BUDDY_ID", buddyId);
@@ -51,7 +53,7 @@ public class ViewDetailsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        displayDetails();
+        displayDetails(); // Dipanggil semula bila kembali dari skrin Edit supaya data ter-refresh
     }
 
     private void displayDetails() {
@@ -60,7 +62,7 @@ public class ViewDetailsActivity extends AppCompatActivity {
             Cursor c = d.rawQuery("SELECT * FROM friends WHERE id = ?", new String[]{String.valueOf(buddyId)});
 
             if (c != null && c.moveToFirst()) {
-                // Urutan ikut insertFriend: id(0), name(1), gender(2), hp(3), email(4), addr1(5), addr2(6), addr3(7), addr4(8)
+                // Urutan indeks: id(0), name(1), gender(2), hp(3), email(4), addr1(5), addr2(6), addr3(7), addr4(8), image(9)
                 String name = c.getString(1);
                 String gender = c.getString(2);
                 String hp = c.getString(3);
@@ -83,11 +85,24 @@ public class ViewDetailsActivity extends AppCompatActivity {
                 if (addr4 != null && !addr4.trim().isEmpty()) fullAddress.append(addr4);
 
                 tvDetAddress.setText(fullAddress.toString().trim());
+
+                // AMBIL DATA GAMBAR DAN PAPARKAN (Indeks Kolum 9)
+                byte[] imgBlob = c.getBlob(9);
+                if (imgBlob != null) {
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(imgBlob, 0, imgBlob.length);
+                    ivDetProfile.setImageBitmap(bitmap);
+                    ivDetProfile.setPadding(0, 0, 0, 0); // Buang padding ikon kamera asal
+                } else {
+                    // Set balik gambar default kamera kalau memang data gambar tiada
+                    ivDetProfile.setImageResource(android.R.drawable.ic_menu_camera);
+                    ivDetProfile.setPadding(10, 10, 10, 10);
+                }
             }
             if (c != null) c.close();
             d.close();
         } catch (Exception e) {
             e.printStackTrace();
+            Toast.makeText(this, "Error showing details: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 }
