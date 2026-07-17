@@ -1,53 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="24dp">
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/tvWelcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="30dp"/>
-    <Button
-        android:id="@+id/btnGoToCreate"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:text="ADD NEW BUDDY"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:backgroundTint="@color/primary_dark"
-        android:layout_marginBottom="12dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
 
+        <!-- Profile Icon -->
 
-    <Button android:id="@+id/btnGoToSearch"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:text="SEARCH BUDDY"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:backgroundTint="@color/primary_dark"/>
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="20dp"
+            android:src="@android:drawable/ic_menu_myplaces"
+            app:tint="@color/white"/>
 
-    <Button
-        android:id="@+id/btnChart"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:text="DISPLAY CHARTS"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:backgroundTint="@color/primary_dark"
-        android:layout_marginBottom="12dp"/>
+        <!-- Welcome -->
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:text="LOGOUT"
-        android:layout_marginTop="15dp"/>
-</LinearLayout>
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:fontFamily="sans-serif-medium"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buddy Management System"
+            android:textColor="#B8C7D9"
+            android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="30dp"/>
+
+        <!-- Menu Card -->
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/bg_dark">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="22dp">
+
+                <!-- Add Buddy -->
+
+                <Button
+                    android:id="@+id/btnGoToCreate"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:text="➕  ADD NEW BUDDY"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/primary_dark"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Search -->
+
+                <Button
+                    android:id="@+id/btnGoToSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:text="🔍  SEARCH BUDDY"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/primary_dark"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Charts -->
+
+                <Button
+                    android:id="@+id/btnChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:text="📊  DISPLAY CHARTS"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/primary_dark"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Logout -->
+
+                <Button
+                    android:id="@+id/btnLogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:text="LOGOUT"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/accent_light"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Footer -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manage • Search • Analyze"
+            android:textColor="#80FFFFFF"
+            android:textSize="13sp"
+            android:layout_marginTop="30dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

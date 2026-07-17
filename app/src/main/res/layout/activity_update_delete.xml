@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary"
@@ -11,206 +13,301 @@
         android:orientation="vertical"
         android:padding="24dp">
 
+        <!-- PAGE TITLE -->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Modify Buddy"
-            android:textSize="26sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
             android:fontFamily="sans-serif-medium"
+            android:text="Modify Buddy"
             android:textColor="@color/white"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"/>
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Edit your friend's profile details safely"
-            android:textSize="13sp"
-            android:textColor="#B3FFFFFF"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="24dp"/>
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="24dp"
+            android:text="Update your buddy's profile information"
+            android:textColor="#B8C7D9"
+            android:textSize="14sp" />
 
-        <LinearLayout
+        <!-- PROFILE PHOTO CARD -->
+
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginBottom="24dp">
+            app:cardBackgroundColor="@color/bg_dark"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:strokeColor="#20FFFFFF"
+            app:strokeWidth="1dp">
 
-            <ImageView
-                android:id="@+id/ivProfileUp"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:background="@android:color/darker_gray"
-                android:src="@android:drawable/ic_menu_camera"
-                android:scaleType="centerCrop"
-                android:padding="10dp"
-                android:contentDescription="Profile Picture" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tap to change photo"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                android:layout_marginTop="8dp"/>
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="20dp">
 
-            <EditText
-                android:id="@+id/etEmailUp"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@null"
-                android:hint="Email Address"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/white"
-                android:textColorHint="#66FFFFFF"
-                android:textSize="15sp" />
-        </LinearLayout>
+                <ImageView
+                    android:id="@+id/ivProfileUp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@android:color/darker_gray"
+                    android:contentDescription="Profile Picture"
+                    android:padding="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@android:drawable/ic_menu_camera" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Tap to change photo"
+                    android:textColor="#C7D2FE"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- PERSONAL INFORMATION TITLE -->
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PERSONAL DETAILS"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="11sp"
-            android:letterSpacing="0.1"
+            android:layout_marginTop="24dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginStart="4dp"/>
+            android:text="PERSONAL INFORMATION"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
-        <LinearLayout
+        <!-- PERSONAL INFORMATION CARD -->
+
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/bg_dark"
-            android:padding="16dp"
-            android:layout_marginBottom="24dp">
+            app:cardBackgroundColor="@color/bg_dark"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:strokeColor="#20FFFFFF"
+            app:strokeWidth="1dp">
 
-            <EditText
-                android:id="@+id/etNameUp"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="Full Name"
-                android:textColorHint="#66FFFFFF"
-                android:textColor="@color/white"
-                android:background="@null"
-                android:textSize="15sp"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
 
-            <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#33FFFFFF" android:layout_marginVertical="10dp"/>
+                <EditText
+                    android:id="@+id/etNameUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@null"
+                    android:hint="Full Name"
+                    android:inputType="textPersonName"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="#88FFFFFF"
+                    android:textSize="15sp" />
 
-            <Spinner
-                android:id="@+id/spGenderUp"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@null" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#30FFFFFF" />
 
-            <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#33FFFFFF" android:layout_marginVertical="10dp"/>
+                <Spinner
+                    android:id="@+id/spGenderUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@null"
+                    android:entries="@array/gender_array"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:popupBackground="@color/bg_dark" />
 
-            <EditText
-                android:id="@+id/etHpUp"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="Phone Number"
-                android:inputType="phone"
-                android:textColorHint="#66FFFFFF"
-                android:textColor="@color/white"
-                android:background="@null"
-                android:textSize="15sp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#30FFFFFF" />
 
-            <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#33FFFFFF" android:layout_marginVertical="10dp"/>
+                <EditText
+                    android:id="@+id/etHpUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@null"
+                    android:hint="Phone Number"
+                    android:inputType="phone"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="#88FFFFFF"
+                    android:textSize="15sp" />
 
-        </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#30FFFFFF" />
+
+                <EditText
+                    android:id="@+id/etEmailUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@null"
+                    android:hint="Email Address"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="#88FFFFFF"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ADDRESS TITLE -->
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
             android:text="RESIDENTIAL ADDRESS"
             android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="11sp"
-            android:letterSpacing="0.1"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="4dp"/>
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <!-- ADDRESS CARD -->
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/bg_dark"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:strokeColor="#20FFFFFF"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <EditText
+                    android:id="@+id/etAddr1Up"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@null"
+                    android:hint="House No / Building"
+                    android:inputType="textPostalAddress"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="#88FFFFFF"
+                    android:textSize="15sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#30FFFFFF" />
+
+                <EditText
+                    android:id="@+id/etAddr2Up"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@null"
+                    android:hint="Street Name / District"
+                    android:inputType="textPostalAddress"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="#88FFFFFF"
+                    android:textSize="15sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#30FFFFFF" />
+
+                <EditText
+                    android:id="@+id/etAddr3Up"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@null"
+                    android:hint="Postcode &amp; City"
+                    android:inputType="textPostalAddress"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="#88FFFFFF"
+                    android:textSize="15sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#30FFFFFF" />
+
+                <Spinner
+                    android:id="@+id/spStateUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@null"
+                    android:entries="@array/state_array"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:popupBackground="@color/bg_dark" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ACTION BUTTONS -->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/bg_dark"
-            android:padding="16dp"
-            android:layout_marginBottom="32dp">
-
-            <EditText
-                android:id="@+id/etAddr1Up"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="House No / Floor / Building"
-                android:textColorHint="#66FFFFFF"
-                android:textColor="@color/white"
-                android:background="@null"
-                android:textSize="15sp"/>
-
-            <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#33FFFFFF" android:layout_marginVertical="10dp"/>
-
-            <EditText
-                android:id="@+id/etAddr2Up"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="Street Name / District"
-                android:textColorHint="#66FFFFFF"
-                android:textColor="@color/white"
-                android:background="@null"
-                android:textSize="15sp"/>
-
-            <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#33FFFFFF" android:layout_marginVertical="10dp"/>
-
-            <EditText
-                android:id="@+id/etAddr3Up"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="Postcode &amp; City"
-                android:textColorHint="#66FFFFFF"
-                android:textColor="@color/white"
-                android:background="@null"
-                android:textSize="15sp"/>
-
-            <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#33FFFFFF" android:layout_marginVertical="10dp"/>
-
-            <Spinner
-                android:id="@+id/spStateUp"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@null"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="24dp"
             android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginBottom="16dp">
+            android:weightSum="2">
 
             <Button
                 android:id="@+id/btnDelete"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="56dp"
+                android:layout_marginEnd="8dp"
                 android:layout_weight="0.8"
-                android:text="DELETE"
-                android:textColor="@color/white"
-                android:textStyle="bold"
                 android:backgroundTint="@color/accent_light"
-                android:layout_marginEnd="8dp"/>
+                android:text="DELETE"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btnUpdate"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="8dp"
                 android:layout_weight="1.2"
+                android:backgroundTint="@color/primary_dark"
                 android:text="SAVE CHANGES"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textStyle="bold"
-                android:backgroundTint="@color/primary_dark"/>
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
         </LinearLayout>
 
     </LinearLayout>
+
 </ScrollView>

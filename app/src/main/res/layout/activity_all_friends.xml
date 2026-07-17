@@ -1,102 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/primary">
 
-    <!-- Top bar: back button + title, matching header style -->
+    <!-- ================= HEADER ================= -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:padding="20dp">
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingTop="24dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="20dp">
 
         <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:src="@android:drawable/ic_menu_revert"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Back" />
+            android:contentDescription="Back"
+            android:padding="8dp"
+            android:src="@android:drawable/ic_menu_revert"
+            android:tint="@color/white" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="16dp">
+            android:layout_marginStart="18dp"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="All Friends"
-                android:textSize="26sp"
-                android:fontFamily="sans-serif-medium"
-                android:textColor="@color/white"/>
+                android:text="Buddy List"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Your Buddy List"
-                android:textSize="14sp"
-                android:textColor="#B3FFFFFF"/>
+                android:text="Search and manage your buddies"
+                android:textColor="#B8C7D9"
+                android:textSize="14sp" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-    <!-- Search card: SearchView + Mic, styled like bg_dark card -->
-    <LinearLayout
+    <!-- ================= SEARCH CARD ================= -->
+
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:background="@color/bg_dark"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="16dp"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp">
-
-        <SearchView
-            android:id="@+id/search_view"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:queryHint="Search friend name..."
-            android:iconifiedByDefault="false"
-            android:background="@android:color/transparent" />
-
-        <ImageButton
-            android:id="@+id/btnVoiceSearch"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:src="@android:drawable/ic_btn_speak_now"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Voice Search" />
-
-    </LinearLayout>
-
-    <!-- Friend list card -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:background="@color/bg_dark"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:padding="8dp">
+        app:cardBackgroundColor="@color/bg_dark"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="6dp">
 
-        <ListView
-            android:id="@+id/friend_list"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="6dp">
+
+            <SearchView
+                android:id="@+id/search_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:iconifiedByDefault="false"
+                android:queryHint="Search buddy..." />
+
+            <ImageButton
+                android:id="@+id/btnVoiceSearch"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Voice Search"
+                android:padding="8dp"
+                android:src="@android:drawable/ic_btn_speak_now"
+                android:tint="@color/white" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- ================= FRIEND LIST ================= -->
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:cardBackgroundColor="@color/bg_dark"
+        app:cardCornerRadius="22dp"
+        app:cardElevation="6dp">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="#22FFFFFF"
-            android:dividerHeight="0.5dp" />
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Buddies"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingStart="20dp"
+                android:paddingTop="18dp"
+                android:paddingBottom="10dp" />
+
+            <ListView
+                android:id="@+id/friend_list"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="10dp"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
+                android:paddingBottom="10dp" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>
